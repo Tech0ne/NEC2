@@ -3,14 +3,14 @@ import base64
 import rsa
 
 def save_key(key: rsa.PublicKey | rsa.PrivateKey) -> bytes:
-    return key.save_pkcs1("PEM")
+    return base64.b64encode(key.save_pkcs1("PEM"))
 
-def load_key(string: str, key_type: rsa.PublicKey | rsa.PrivateKey) -> rsa.PublicKey | rsa.PrivateKey:
-    return key_type.load_pkcs1(string)
+def load_key(key: bytes, key_type: rsa.PublicKey | rsa.PrivateKey) -> rsa.PublicKey | rsa.PrivateKey:
+    return key_type.load_pkcs1(base64.b64decode(key))
 
-def generate_rsa_keys(length: int):
-    # min 90
-    # max 5000
+def generate_rsa_keys(length: int) -> (rsa.PublicKey, rsa.PrivateKey):
+    if length < 90:
+        raise ValueError("\"length\" is too short to have a working RSA system")
     return rsa.newkeys(length)
 
 def encrypt(data: bytes, public_key: rsa.PublicKey) -> bytes:

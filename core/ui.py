@@ -6,6 +6,7 @@ from rich.align import Align
 from rich.text import Text
 from rich.live import Live
 from rich.table import Table
+from rich.console import Console
 
 from threading import Thread, Event
 
@@ -29,3 +30,5 @@ Usage:
         print(Panel("Usage :"))"""
         print(Panel(string, title="[red]CommunityChat[white]", title_align="center"))
         sys.exit(2)
+
+def run_client()
