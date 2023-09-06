@@ -95,7 +95,3 @@ class Server:
     def add_client(self, connection: socket.socket, public_key: rsa.PublicKey, uname: str, customisation: dict) -> typing.Tuple(bool, str):
         if uname in self.clients.keys():
             return (False, "Username exists")
-        
-
-def setup_server():
-    pass

@@ -2,14 +2,7 @@ import sys
 
 from rich import print
 from rich.panel import Panel
-from rich.align import Align
-from rich.text import Text
-from rich.live import Live
-from rich.table import Table
-from rich.console import Console
-
-from threading import Thread, Event
-
+from rich.prompt import Prompt, Confirm
 
 def show_help(args: list):
     if "--help" in args or "-h" in args:
@@ -31,4 +24,12 @@ Usage:
         print(Panel(string, title="[red]CommunityChat[white]", title_align="center"))
         sys.exit(2)
 
-def run_client()
+def run_client():
+    pass
+
+def setup_server():
+    if Confirm.ask("Do you want to use ngrok"):
+        from pyngrok import ngrok
+
+        authtoken = Prompt.ask("Ngrok auth token (get it [link=https://dashboard.ngrok.com/get-started/setup]here[/link])")
+        ngrok.set_auth_token(authtoken)
