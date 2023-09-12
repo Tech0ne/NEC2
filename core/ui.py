@@ -21,7 +21,7 @@ Usage:
     [khaki3]Options[white]:
         --help, -h      Show this help and exit
         print(Panel("Usage :"))"""
-        print(Panel(string, title="[red]CommunityChat[white]", title_align="center"))
+        print(Panel(string, title="[red]NEC2[white]", title_align="center"))
         sys.exit(2)
 
 def run_client():
