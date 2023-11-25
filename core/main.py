@@ -1,12 +1,12 @@
-from .encryptions import *
-from .ui import *
+##########################
+#              _      
+#   _ __  __ _(_)_ _  
+#  | '  \/ _` | | ' \ 
+#  |_|_|_\__,_|_|_||_|
+#                     
+##########################
 
-def main(args: list) -> int:
-    if "--help" in args or "-h" in args:
-        show_help(args)
-    is_server = "-server" in args
-    if is_server:
-        pass
+from .imports import *
 
-    run_client()
-    setup_server()
+def main(args: list[str]) -> int:
+    pass

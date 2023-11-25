@@ -1,9 +1,10 @@
-##
-## Sample Python chat using RSA and rich
-##  Do not use for any illegal activity
-##  It is safe to use, as long as the
-##  genrated RSA keys are strong
-##
+##########################
+#              _      
+#   _ __  __ _(_)_ _  
+#  | '  \/ _` | | ' \ 
+#  |_|_|_\__,_|_|_||_|
+#                     
+##########################
 
 import sys
 
