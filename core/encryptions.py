@@ -21,23 +21,6 @@ class RsaKeys:
         self.public_key = public_key
         self.private_key = private_key
         self.length = length
-    
-    def export_certificate(self):
-        key = save_key(self.public_key)
-        key = [key.decode()[i:i+50] for i in range(0, len(key), 50)]
-        key = '\n'.join(key)
-        certif = f"""----- START NEC2 PUBLIC KEY -----
-{key}
------ FINISH NEC2 PUBLIC KEY -----"""
-
-    def import_certificate(self, certif: bytes):
-        if ((not b"----- START NEC2 PUBLIC KEY -----\n" in certif) or
-            (not b"\n----- FINISH NEC2 PUBLIC KEY -----" in certif)):
-           raise ValueError("Invalid certificate format")
-        key = certif.split('-\n')[1].split('\n-')[0]
-        key = key.replace('\n', '')
-        self.public_key = load_key(key, rsa.PublicKey)
-        return self
 
 def save_key(key: rsa.PublicKey | rsa.PrivateKey) -> bytes:
     return base64.b64encode(key.save_pkcs1("PEM"))
